@@ -20,8 +20,7 @@ body {
   font-family: "Proxima";
 }
 
-.Container,
-.quick-play {
+.container {
   width: 100%;
   height: 100vh;
   display: flex;
@@ -29,7 +28,7 @@ body {
   align-items: center;
 }
 
-.container__animation {
+.animationFrame {
   width: 870px;
   height: 700px;
   box-shadow: inset 0 0 16px 32px #fff;
@@ -53,7 +52,7 @@ body {
   }
 }
 
-.BoyAnimatedWrapper {
+.animationFrame__boyContainer {
   position: absolute;
   top: 320px;
   right: 30px;
@@ -65,7 +64,7 @@ body {
   align-items: center;
 }
 
-.boy {
+.animationFrame__boyCharacter {
   width: 190px;
   height: 100%;
   background: url(../assets/images/animations_9.f2d4c661.png);
@@ -85,14 +84,14 @@ body {
   }
 }
 
-.header__logo {
+.logoName {
   margin-top: 50px;
   font-size: 5rem;
   letter-spacing: 1rem;
   text-transform: uppercase;
 }
 
-.home__buttons {
+.homeItems {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -104,7 +103,7 @@ body {
   gap: 20px;
 }
 
-.home__button {
+.homeItems__bottons {
   width: 220px;
   height: 90px;
   font-weight: bold;
@@ -117,40 +116,17 @@ body {
   z-index: 2;
 }
 
-.HomePage__Links {
+.homeItems__links{
   color: #000;
   text-decoration: none;
   font-size: 1.5rem;
 }
 
-.HomePage__Sound {
+.animationFrame__sound {
   position: absolute;
   left: 10%;
   top: 85%;
   cursor: pointer;
 }
 
-.quick-play__buttons {
-  width: 300px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
 
-.quick-play__button {
-  width: 40px;
-  height: 40px;
-  font-weight: bold;
-  background-color: #fff;
-  border: 2px solid #000;
-  cursor: pointer;
-}
-
-/* .quick-play__blanks-parent {
-  position: relative;
-}
-
-.quick-play__blanks-parent--top {
-  position: absolute;
-
-} */

@@ -1,7 +1,7 @@
 "use strict";
 // make variables
-let homeButtons = document.querySelectorAll(".HomePage__Links")
-const sound = document.querySelector(".HomePage__Sound");
+let homeButtons = document.querySelectorAll(".homeItems__links")
+const sound = document.querySelector(".animationFrame__sound");
 
 let soundOnOff = true;
 

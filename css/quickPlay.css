@@ -1,0 +1,79 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Proxima";
+}
+
+.quick-play {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quick-play__buttons {
+    width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.quick-play__button {
+    width: 40px;
+    height: 40px;
+    font-weight: bold;
+    background-color: #fff;
+    border: 2px solid #000;
+    cursor: pointer;
+}
+
+
+.quick-play__buttons {
+    width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .quick-play__button {
+    width: 40px;
+    height: 40px;
+    font-weight: bold;
+    background-color: #fff;
+    border: 2px solid #000;
+    cursor: pointer;
+  }
+  
+  .quick-play__blanks-parent {
+    position: relative;
+    text-align: center;
+    margin-bottom: 20px;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+  }
+  
+  .quick-play__alphabet{
+    width: 20px;
+    display: inline-block;
+    height: fit-content;
+    font-weight: bold;
+    border-bottom: 2px solid black;
+    margin: 10px;
+  }
+  
+  .quick-play__blanks-parent--top {
+    width: 500px;
+    position: absolute;
+    top: -40%;
+    left: -10%;
+    font-size: 20px;
+  }
+  

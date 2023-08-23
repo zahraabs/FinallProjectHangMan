@@ -5,7 +5,6 @@ const sound = document.querySelector(".HomePage__Sound");
 
 let soundOnOff = true;
 
-
 const tickAudio = new Audio("./assets/sounds/Check mark sound effect.mp3")
 
 homeButtons.forEach(item => {

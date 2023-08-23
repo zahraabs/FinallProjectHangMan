@@ -20,7 +20,8 @@ body {
   font-family: "Proxima";
 }
 
-.Container ,.quick-play {
+.Container,
+.quick-play {
   width: 100%;
   height: 100vh;
   display: flex;
@@ -145,6 +146,11 @@ body {
   cursor: pointer;
 }
 
-/* .quick-play__blanks-parent{
+/* .quick-play__blanks-parent {
+  position: relative;
+}
+
+.quick-play__blanks-parent--top {
+  position: absolute;
 
 } */

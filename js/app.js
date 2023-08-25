@@ -21,3 +21,4 @@ sound.addEventListener("click", e => {
         tickAudio.play()
     }
 })
+

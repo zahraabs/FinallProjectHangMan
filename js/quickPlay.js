@@ -1,8 +1,11 @@
 const quickPlayBtns = document.querySelector(".quickPlay__buttons");
 const blankParentElement = document.querySelector(".quickPlay__blanksParent");
-let title =null;
+let title = null;
 
-quickPlayBtns.addEventListener("click" , clickOnEachBtn);
+quickPlayBtns.addEventListener("click", clickOnEachBtn);
+
+giveMeWordsOnScreen();
+
 
 function giveMeWordsOnScreen() {
   let wordsDataOnArray = Array(26).fill(null);
@@ -17,11 +20,6 @@ function giveMeWordsOnScreen() {
     quickPlayBtns.appendChild(btn);
   })
 }
-
-
-giveMeWordsOnScreen();
-
-
 
 const getRandomRecipe = async () => {
   const apiKey = "638e9c1dbc8647f28da391cc0e7fce3c";
@@ -58,9 +56,9 @@ function alphabet(title) {
   blankParentElement.appendChild(alpha);
 
   if (alpha.textContent == " " || alpha.textContent == "-"
-    || alpha.textContent == "&"  || alpha.textContent == ","
-     || alpha.textContent == "_" || alpha.textContent == "(" 
-     || alpha.textContent == ")") {
+    || alpha.textContent == "&" || alpha.textContent == ","
+    || alpha.textContent == "_" || alpha.textContent == "("
+    || alpha.textContent == ")") {
     alpha.classList.remove("quickPlay__alphabet")
   }
 }
@@ -77,24 +75,22 @@ function ingredient(ingredients) {
 function clickOnEachBtn(e) {
   const letterClicked = e.target.textContent;
   let status = 0;
- if (letterClicked.length === 1) {
-  const allLettersElement = document.querySelectorAll(".quickPlay__paragraph");
-  
-  for (let i = 0; i < allLettersElement.length; i++) {
-    const spanElement = allLettersElement[i];
-    
-    if (letterClicked == spanElement.textContent) {
-      spanElement.parentElement.textContent = letterClicked;
-      status++;
-    }
-      // e.target.setAttribute("disabled");
+  if (letterClicked.length === 1) {
+    const allLettersElement = document.querySelectorAll(".quickPlay__paragraph");
+
+    for (let i = 0; i < allLettersElement.length; i++) {
+      const spanElement = allLettersElement[i];
+
+      if (letterClicked == spanElement.textContent) {
+        spanElement.parentElement.textContent = letterClicked;
+        status++;
+      }
     }
     if (status != 0) {
-      e.target.setAttribute("disabled" , "disabled");
+      e.target.setAttribute("disabled", "disabled");
     } else {
       e.target.classList.add("quickPlay__wrong");
     }
-    e.target.setAttribute("disabled" , "disabled");
+    e.target.setAttribute("disabled", "disabled");
   }
-
- }
+}

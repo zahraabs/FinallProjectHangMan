@@ -12,13 +12,13 @@ homeButtons.forEach(item => {
     item.innerText = item.innerText.toUpperCase();
 })
 
-sound.addEventListener("click", e => {
+sound.addEventListener("click", () => {
     if (soundOnOff) {
-        e.target.src = "./assets/images/soundOff.png";
+        sound.src = "./assets/images/soundOff.png";
         soundOnOff = false;
           pauseBackgroundMusic();
-    } else if (soundOnOff == false) {
-        e.target.src = "./assets/images/sound.png";
+    } else {
+        sound.src = "./assets/images/sound.png";
         soundOnOff = true;
         tickAudio.play();
         playBackgroundMusic();

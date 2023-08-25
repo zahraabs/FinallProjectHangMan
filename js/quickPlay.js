@@ -8,8 +8,7 @@ giveMeWordsOnScreen();
 
 
 function giveMeWordsOnScreen() {
-  let wordsDataOnArray = Array(26).fill(null);
-  let charCodeA = 65;
+  let wordsDataOnArray = Array.from({ length: 26 }, (_, index) => String.fromCharCode(65 + index));
   wordsDataOnArray = wordsDataOnArray.map(() => {
     return String.fromCharCode(charCodeA++);
   });
@@ -34,8 +33,8 @@ const getRandomRecipe = async () => {
 
     console.log(title);
     console.log(ingredients);
-    for (let index = 0; index < title.length; index++) {
-      alphabet(title[index])
+    for (const char of title) {
+      alphabet(char);
     }
     ingredient(ingredients)
   } catch (error) {
@@ -55,11 +54,9 @@ function alphabet(title) {
   alpha.appendChild(paragraph);
   blankParentElement.appendChild(alpha);
 
-  if (alpha.textContent == " " || alpha.textContent == "-"
-    || alpha.textContent == "&" || alpha.textContent == ","
-    || alpha.textContent == "_" || alpha.textContent == "("
-    || alpha.textContent == ")") {
-    alpha.classList.remove("quickPlay__alphabet")
+  const invalidChars = [" ", "-", "&", ",", "_", "(",")"];
+  if (invalidChars.includes(alpha.textContent)) {
+    alpha.classList.remove("quickPlay__alphabet");
   }
 }
 
@@ -74,14 +71,13 @@ function ingredient(ingredients) {
 
 function clickOnEachBtn(e) {
   const letterClicked = e.target.textContent;
-  let status = 0;
   if (letterClicked.length === 1) {
     const allLettersElement = document.querySelectorAll(".quickPlay__paragraph");
-
-    for (let i = 0; i < allLettersElement.length; i++) {
-      const spanElement = allLettersElement[i];
-
-      if (letterClicked == spanElement.textContent) {
+    
+    let status = 0;
+    
+    for (const spanElement of allLettersElement) {
+      if (letterClicked === spanElement.textContent) {
         spanElement.parentElement.textContent = letterClicked;
         status++;
       }

@@ -1,6 +1,18 @@
+const canvas = document.querySelector("canvas");
 const quickPlayBtns = document.querySelector(".quickPlay__buttons");
 const blankParentElement = document.querySelector(".quickPlay__blanksParent");
 let title = null;
+
+let context = canvas.getContext("2d");
+
+context.fillStyle = "white";
+context.strokeStyle = "black";
+
+context.fillRect(0,0,600,600);
+context.strokeRect(0,0,600,600);
+
+canvas.width = 600;
+canvas.height = 600;
 
 quickPlayBtns.addEventListener("click", clickOnEachBtn);
 
@@ -9,9 +21,6 @@ giveMeWordsOnScreen();
 
 function giveMeWordsOnScreen() {
   let wordsDataOnArray = Array.from({ length: 26 }, (_, index) => String.fromCharCode(65 + index));
-  wordsDataOnArray = wordsDataOnArray.map(() => {
-    return String.fromCharCode(charCodeA++);
-  });
   wordsDataOnArray.forEach((element) => {
     const btn = document.createElement("button");
     btn.classList.add("quickPlay__button");
@@ -84,9 +93,82 @@ function clickOnEachBtn(e) {
     }
     if (status != 0) {
       e.target.setAttribute("disabled", "disabled");
+      e.target.classList.add("quickPlay__correct");
     } else {
       e.target.classList.add("quickPlay__wrong");
     }
     e.target.setAttribute("disabled", "disabled");
   }
 }
+
+
+// Draw the hangman stand
+function drawHangmanStand() {
+  clearCanvas();
+  // Draw base
+  context.beginPath();
+  context.moveTo(100, canvas.height - 50);
+  context.lineTo(canvas.width - 100, canvas.height - 50);
+  context.stroke();
+
+  // Draw vertical pole
+  context.beginPath();
+  context.moveTo(200, canvas.height - 50);
+  context.lineTo(200, 100);
+  context.stroke();
+
+  // Draw horizontal pole
+  context.beginPath();
+  context.moveTo(200, 100);
+  context.lineTo(canvas.width - 200, 100);
+  context.stroke();
+
+  // Draw support pole
+  context.beginPath();
+  context.moveTo(canvas.width - 200, 100);
+  context.lineTo(canvas.width - 200, 150);
+  context.stroke();
+
+   // Draw the hangman figure
+   context.beginPath();
+   context.arc(canvas.width - 200, 200, 50, 0, Math.PI * 2);
+   context.stroke();
+ 
+   // Draw body
+   context.beginPath();
+   context.moveTo(canvas.width - 200, 250);
+   context.lineTo(canvas.width - 200, 400);
+   context.stroke();
+ 
+   // Draw left arm
+   context.beginPath();
+   context.moveTo(canvas.width - 200, 300);
+   context.lineTo(canvas.width - 250, 350);
+   context.stroke();
+ 
+   // Draw right arm
+   context.beginPath();
+   context.moveTo(canvas.width - 200, 300);
+   context.lineTo(canvas.width - 150, 350);
+   context.stroke();
+ 
+   // Draw left leg
+   context.beginPath();
+   context.moveTo(canvas.width - 200, 400);
+   context.lineTo(canvas.width - 250, 450);
+   context.stroke();
+ 
+   // Draw right leg
+   context.beginPath();
+   context.moveTo(canvas.width - 200, 400);
+   context.lineTo(canvas.width - 150, 450);
+   context.stroke();
+}
+
+// Clear the canvas
+function clearCanvas() {
+  context.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+// Example usage
+drawHangmanStand();

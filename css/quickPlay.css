@@ -1,3 +1,13 @@
+@font-face {
+  font-family: "Proxima";
+  src: url(./../assets/fonts/ProximaSoft-Regular.woff2);
+}
+
+@font-face {
+  font-family: ProximaBold;
+  src: url(./../assets/fonts/ProximaSoft-ExtraBold.woff);
+}
+
 *,
 *::after,
 *::before {
@@ -8,6 +18,15 @@
 
 body {
   font-family: "Proxima";
+}
+
+.container {
+  max-width: 1536px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
 }
 
 .quickPlay {
@@ -26,6 +45,7 @@ body {
 }
 
 .quickPlay__button {
+  position: relative;
   width: 40px;
   height: 40px;
   font-weight: bold;
@@ -39,8 +59,8 @@ body {
   text-align: center;
   margin-bottom: 20px;
   /* display: flex;
-    justify-content: center;
-    align-items: center; */
+  justify-content: center;
+  align-items: center; */
 }
 
 .quickPlay__alphabet {
@@ -66,7 +86,52 @@ body {
   display: none;
 }
 
-.quickPlay__wrong {
-  background-color: #db3a3a;
-  color: #fff;
+.quickPlay__wrong::after {
+  content: " ";
+  position: absolute;
+  left: -1px;
+  top: -2px;
+  transform-origin: left;
+  transform: rotate(45deg);
+  width: 149%;
+  height: 2px;
+  border-radius: 4px;
+  z-index: 2;
+}
+
+.quickPlay__wrong::before {
+  content: " ";
+  position: absolute;
+  left: -1px;
+  bottom: -2px;
+  transform-origin: left;
+  transform: rotate(-45deg);
+  width: 149%;
+  height: 2px;
+  border-radius: 4px;
+  z-index: 2;
+}
+
+.quickPlay__wrong,
+.quickPlay__correct {
+  border: 2px solid #6d6d6d;
+  opacity: 0.7;
+}
+
+.quickPlay__wrong::after,
+.quickPlay__wrong::before {
+  color: #6d6d6d;
+  background-color: #6d6d6d;
+  opacity: 0.7;
+}
+
+.quickPlay__hang-body {
+  position: relative;
+}
+
+ canvas {
+  display: block;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border: 1px solid #000000;
 }

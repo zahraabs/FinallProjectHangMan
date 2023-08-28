@@ -158,8 +158,8 @@ canvas.addEventListener("click", function (event) {
 
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   for (let i = 0; i < alphabet.length; i++) {
-    const keyX = 100 + (i % 10) * keyWidth;
-    const keyY = 400 + Math.floor(i / 10) * keyHeight;
+    const keyX = 450 + (i % 10) * keyWidth;
+    const keyY = 300 + Math.floor(i / 10) * keyHeight;
 
     if (
       mouseX >= keyX &&
@@ -188,6 +188,7 @@ canvas.addEventListener("click", function (event) {
           disabledLetters.push(selectedLetter);
 
           // Disable the corresponding button
+          context.globalAlpha = 0.6;
           context.fillStyle = "#cccccc";
           context.strokeStyle = "black";
           
@@ -201,15 +202,23 @@ canvas.addEventListener("click", function (event) {
           selectedLetters.push(selectedLetter);
 
           // Draw lines for the wrong letter button
-          const lineX = keyX + keyWidth / 2;
-          const lineY1 = keyY + keyHeight / 2 - 10;
-          const lineY2 = keyY + keyHeight / 2 + 10;
+          const lineX1 = keyX ;
+  const lineX2 = keyX + keyWidth ;
+  const lineY1 = keyY ;
+  const lineY2 = keyY + keyHeight ;
 
-          context.strokeStyle = "red";
-          context.beginPath();
-          context.moveTo(lineX, lineY1);
-          context.lineTo(lineX, lineY2);
-          context.stroke();
+  context.globalAlpha = 0.5;
+  context.strokeStyle = "red";
+  context.lineWidth = 2;
+  context.beginPath();
+  context.moveTo(lineX1, lineY1);
+  context.lineTo(lineX2, lineY2);
+  context.stroke();
+
+  context.beginPath();
+  context.moveTo(lineX2, lineY1);
+  context.lineTo(lineX1, lineY2);
+  context.stroke();
 
           // Your code to multiply the lines for the wrong letter button goes here
         }

@@ -1,13 +1,7 @@
 @font-face {
-    font-family: "Proxima";
-    src: url(./../assets/fonts/ProximaSoft-Regular.woff2);
-}
-
-@font-face {
-    font-family: ProximaBold;
-    src: url(./../assets/fonts/ProximaSoft-ExtraBold.woff);
-}
-
+    font-family: "hangman";
+    src: url(./../assets/fonts/Photographs.ttf);
+  }
 
 *,
 *::after,
@@ -18,7 +12,7 @@
 }
 
 body {
-    font-family: "Proxima";
+    font-family: "hangman";
 }
 
 .container {
@@ -91,7 +85,7 @@ body {
     top: 5%;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 5rem;
+    font-size: 7rem;
     letter-spacing: 1rem;
     text-transform: uppercase;
     z-index: 2;
@@ -124,7 +118,7 @@ body {
 .homeItems__links {
     color: #000;
     text-decoration: none;
-    font-size: 2.5rem;
+    font-size: 3rem;
     text-transform: uppercase;
     font-weight: 700;
 }

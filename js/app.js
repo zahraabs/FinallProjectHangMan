@@ -54,3 +54,27 @@ document.querySelector(".homeIcon").addEventListener("click", backToHome);
 document
 	.querySelector(".btn-single-player")
 	.addEventListener("click", switchToSinglePlayer);
+
+	// Modal
+// Selectors
+const modal = document.querySelector(".modal");
+const openModalBtn = document.querySelector(".questionIcon");
+const closeModalBtn = document.querySelector(".btn-close");
+
+// Modal functionality
+// Open the modal
+openModalBtn.addEventListener("click", () => {
+	console.log("open clicked");
+	modal.classList.remove("hidden");
+});
+
+// Close the modal
+closeModalBtn.addEventListener("click", () => {
+	modal.classList.add("hidden");
+});
+
+modal.addEventListener("click", (e) => {
+	if (e.target === modal) {
+		modal.classList.add("hidden");
+	}
+});

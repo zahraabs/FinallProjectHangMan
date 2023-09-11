@@ -5,13 +5,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/singlePlayer.css" />
   <title>Hang Man</title>
 </head>
 
-<!-- Address main site = " https://www.coolmathgames.com/0-hangman " -->
-
 <body>
-  <div class="container">
+  <div class="container ">
+
     <div class="animationFrame">
       <div class="animationFrame__boyContainer">
         <div class="animationFrame__boyCharacter"></div>
@@ -19,23 +19,57 @@
 
       <div class="logoName">hangman</div>
 
-      <div class="homeItems">
+      <!-- Initial Page -->
+      <div class="homeItems main-page">
         <div class="homeItems__bottons">
           <a href="./quickPlay.html" class="homeItems__links"> quick play</a>
         </div>
-        <div class="homeItems__bottons">
-          <a href="./singlePlayer.html" class="homeItems__links">single player</a>
+        <div class="homeItems__bottons btn-single-player">
+          <a href="#" class="homeItems__links ">single player</a>
+          <!-- <button class="homeItems__links">single player</button> -->
         </div>
       </div>
 
-        <img class="animationFrame__sound" src="assets/images/sound.png" alt="sound" />
-    </div>
+      <img class="animationFrame__sound" src="assets/images/soundOff.png" alt="sound" />
+      <a class="homeIcon" href="#">
+        <img class="homeIcon__image" src="./assets/images/home.png" alt="goHome">
+      </a>
 
+      <!-- Single Player Page -->
+      <div class="container single-player-page">
+        <div class="modal hidden">
+          <div class="modal-content">
+            <h1>This is a modal</h1>
+            <p>This is the content of the modal.</p>
+            <button class="btn-close">Close</button>
+          </div>
+        </div>
+        <div class="homeItems">
+          <div class="homeItems__bottons">
+            <a href="#" class="homeItems__links"> easy</a>
+          </div>
+          <div class="homeItems__bottons">
+            <a href="#" class="homeItems__links">medium</a>
+          </div>
+          <div class="homeItems__bottons">
+            <a href="#" class="homeItems__links">hard</a>
+          </div>
+        </div>
+
+        <a class="buttonPlay" href="#">play</a>
+
+        <img class="questionIcon" src="./assets/images/QuestionMark.png" alt="QuestionMark">
+
+      </div>
+
+
+
+    </div>
   </div>
 
-  
-  <script type="module"  src="./js/app.js"></script>
- 
+
+  <script type="module" src="./js/app.js"></script>
+
 </body>
 
 </html>

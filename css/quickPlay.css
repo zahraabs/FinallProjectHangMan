@@ -128,10 +128,3 @@ body {
 .quickPlay__hang-body {
   position: relative;
 }
-
- canvas {
-  display: block;
-  margin: 0 auto;
-  background-color: #ffffff;
-  border: 1px solid #000000;
-}

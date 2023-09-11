@@ -8,6 +8,8 @@ const keyHeight = keyboardHeight / 3;
 const keyPadding = 10;
 let incorrectGuesses = 0;
 const maxIncorrectGuesses = 6;
+const size = 25;
+const missedLetters = [];
 
 let recipe;
 let recipeTitle = "";
@@ -22,7 +24,135 @@ context.strokeStyle = "black";
 context.fillRect(0, 0, canvas.width, canvas.height);
 context.strokeRect(0, 0, canvas.width, canvas.height);
 
-// Draw the hangman stand
+// Clear the canvas
+function clearCanvas() {
+  context.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+// Draw the keyboard alphabet
+function drawKeyboard() {
+  const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+  for (let i = 0; i < alphabet.length; i++) {
+    const keyX = 450 + (i % 10) * (keyWidth + keyPadding);
+    const keyY = 300 + Math.floor(i / 10) * (keyHeight + keyPadding);
+
+    context.fillStyle = "#e0e0e0";
+    context.fillRect(keyX, keyY, keyWidth, keyHeight);
+
+    context.fillStyle = "black";
+    context.font = "22px Arial";
+    context.textAlign = "center";
+    context.textBaseline = "middle";
+    context.fillText(alphabet[i], keyX + keyWidth / 2, keyY + keyHeight / 2);
+
+    context.strokeStyle = "black";
+    context.strokeRect(keyX, keyY, keyWidth, keyHeight);
+  }
+}
+
+drawKeyboard();
+
+const getRandomRecipe = async () => {
+  const apiKey = "638e9c1dbc8647f28da391cc0e7fce3c";
+
+  try {
+    const url = `https://api.spoonacular.com/recipes/random?apiKey=${apiKey}`;
+    const response = await fetch(url);
+    const data = await response.json();
+    recipe = data.recipes[0]; // Assign the first random recipe to the global recipe variable
+
+    if (recipe) {
+      recipeTitle = recipe.title.toUpperCase();
+      recipeIngredients = recipe.extendedIngredients
+        .slice(0, 2) // Get the first two ingredients
+        .map((ingredient) => ingredient.name)
+        .join(", ");
+
+      // displayRecipe();
+      drawWord(recipeTitle);
+
+      console.log(recipeTitle);
+      console.log(recipeIngredients);
+      // Your code to display the recipe title and ingredients goes here
+    } else {
+      console.log("No recipe found.");
+    }
+  } catch (error) {
+    console.log("Error occurred:", error);
+  }
+};
+
+// Call the API to get a random recipe once at the start
+getRandomRecipe();
+
+async function drawWord(words) {
+  for (let i = 0; i < words.length; i++) {
+    let letter;
+    if (words[i] != " ") {
+      letter = "_";
+      const missed = {
+        letter: words[i],
+        position: { x: i * size, y: 50 },
+      };
+      missedLetters.push(missed);
+    } else {
+      letter = words[i];
+    }
+    context.font = `${size}px serif`;
+    context.fillText(letter, size * i, 50);
+  }
+}
+
+function drawMissed() {
+  window.addEventListener("click", (e) => {
+    const exist = missedLetters.find((m) => m.letter === e.key);
+    if (exist) {
+      context.font = `${size}px serif`;
+      context.fillText(exist.letter, exist.position.x, exist.position.y - 1);
+      const index = missedLetters.indexOf(exist);
+      missedLetters.splice(index, 1);
+    }
+  });
+}
+
+drawMissed();
+
+// function displayRecipe() {
+//   context.strokeStyle = "black";
+//   context.lineWidth = 2;
+
+//   const charGap = 20; // Adjust the gap size between letters
+//   const lineY = canvas.height - 60; // Initial line Y position
+//   const lineSpacing = 40; // Adjust the vertical spacing between lines
+//   const maxLineWidth = canvas.width * 0.6; // Maximum width of a line before wrapping
+
+//   const totalWidth = (recipeTitle.length - 1) * charGap;
+//   let currentX = canvas.width / 2 - totalWidth / 2;
+//   let currentY = lineY;
+
+//   for (let i = 0; i < recipeTitle.length; i++) {
+//     const lineX1 = currentX;
+//     const lineX2 = currentX + charGap;
+
+//     if (recipeTitle[i] !== ' ') {
+//       context.beginPath();
+//       context.moveTo(lineX1, currentY);
+//       context.lineTo(lineX2, currentY);
+//       context.stroke();
+//     }
+
+//     currentX += charGap + context.measureText(recipeTitle[i]).width;
+
+//     // Wrap to the next line if the current line exceeds the maximum width
+//     if (currentX > maxLineWidth) {
+//       currentX = canvas.width / 2 - totalWidth / 2;
+//       currentY += lineSpacing;
+//     }
+//   }
+
+//   }
+
 function drawHangmanStand() {
   // Draw base
   context.beginPath();
@@ -47,160 +177,7 @@ function drawHangmanStand() {
   context.moveTo(canvas.width - 700, 100);
   context.lineTo(canvas.width - 700, 150);
   context.stroke();
-
-  // Draw the hangman figure
-  // context.beginPath();
-  // context.arc(canvas.width -700, 200, 50, 0, Math.PI * 2);
-  // context.stroke();
-
-  // // Draw body
-  // context.beginPath();
-  // context.moveTo(canvas.width - 700, 250);
-  // context.lineTo(canvas.width - 700, 400);
-  // context.stroke();
-
-  // // Draw left arm
-  // context.beginPath();
-  // context.moveTo(canvas.width - 700, 300);
-  // context.lineTo(canvas.width - 750, 350);
-  // context.stroke();
-
-  // // Draw right arm
-  // context.beginPath();
-  // context.moveTo(canvas.width - 700, 300);
-  // context.lineTo(canvas.width - 650, 350);
-  // context.stroke();
-
-  // // Draw left leg
-  // context.beginPath();
-  // context.moveTo(canvas.width - 700, 400);
-  // context.lineTo(canvas.width - 750, 450);
-  // context.stroke();
-
-  // // Draw right leg
-  // context.beginPath();
-  // context.moveTo(canvas.width - 700, 400);
-  // context.lineTo(canvas.width - 650, 450);
-  // context.stroke();
 }
-
-// Clear the canvas
-function clearCanvas() {
-  context.clearRect(0, 0, canvas.width, canvas.height);
-}
-
-// Draw the keyboard alphabet
-function drawKeyboard() {
-  const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-  for (let i = 0; i < alphabet.length; i++) {
-    const keyX = 450 + (i % 10) * (keyWidth + keyPadding);
-    const keyY = 300 + Math.floor(i / 10) * (keyHeight + keyPadding);
-
-    context.fillStyle = "#e0e0e0";
-    context.fillRect(keyX, keyY, keyWidth, keyHeight);
-
-    context.fillStyle = "black";
-    context.font = "22px Arial";
-    context.textAlign = "center";
-    context.textBaseline = "middle";
-    context.fillText(
-      alphabet[i],
-      keyX + keyWidth / 2,
-      keyY + keyHeight / 2
-    );
-
-    context.strokeStyle = "black";
-    context.strokeRect(keyX, keyY, keyWidth, keyHeight);
-  }
-}
-
-drawKeyboard();
-
-const getRandomRecipe = async () => {
-  const apiKey = "638e9c1dbc8647f28da391cc0e7fce3c";
-
-
-  try {
-    const url = `https://api.spoonacular.com/recipes/random?apiKey=${apiKey}`;
-    const response = await fetch(url);
-    const data = await response.json();
-    recipe = data.recipes[0]; // Assign the first random recipe to the global recipe variable
-
-    if (recipe) {
-      recipeTitle = recipe.title.toUpperCase();
-      recipeIngredients = recipe.extendedIngredients
-        .slice(0, 2) // Get the first two ingredients
-        .map((ingredient) => ingredient.name)
-        .join(", ");
-
-        displayRecipe();
-
-     console.log(recipeTitle);
-     console.log(recipeIngredients);
-      // Your code to display the recipe title and ingredients goes here
-    } else {
-      console.log("No recipe found.");
-    }
-  } catch (error) {
-    console.log("Error occurred:", error);
-  }
-};
-
-// Call the API to get a random recipe once at the start
-getRandomRecipe();
-
-
-function displayRecipe() {
-  context.strokeStyle = "black";
-  context.lineWidth = 2;
-
-  const charGap = 20; // Adjust the gap size between letters
-  const lineY = canvas.height - 60; // Initial line Y position
-  const lineSpacing = 40; // Adjust the vertical spacing between lines
-  const maxLineWidth = canvas.width * 0.6; // Maximum width of a line before wrapping
-
-  const totalWidth = (recipeTitle.length - 1) * charGap;
-  let currentX = canvas.width / 2 - totalWidth / 2;
-  let currentY = lineY;
-
-  for (let i = 0; i < recipeTitle.length; i++) {
-    const lineX1 = currentX;
-    const lineX2 = currentX + charGap;
-
-    if (recipeTitle[i] !== ' ') {
-      context.beginPath();
-      context.moveTo(lineX1, currentY);
-      context.lineTo(lineX2, currentY);
-      context.stroke();
-    }
-
-    currentX += charGap + context.measureText(recipeTitle[i]).width;
-
-    // Wrap to the next line if the current line exceeds the maximum width
-    if (currentX > maxLineWidth) {
-      currentX = canvas.width / 2 - totalWidth / 2;
-      currentY += lineSpacing;
-    }
-  }
-
-  // Draw the hangman figure based on the number of incorrect guesses
-  if (incorrectGuesses >= maxIncorrectGuesses) {
-    gameOver(recipeTitle);
-  }
-
-    if (incorrectGuesses > 0) drawHead();
-    if (incorrectGuesses > 1) drawBody();
-    if (incorrectGuesses > 2) drawLeftArm();
-    if (incorrectGuesses > 3) drawRightArm();
-    if (incorrectGuesses > 4) drawLeftLeg();
-    if (incorrectGuesses > 5) drawRightLeg();
-    if (incorrectGuesses > 6) drawHangmanStand();
-  } 
- 
-  
-
-
 
 function drawHead() {
   context.beginPath();
@@ -243,7 +220,6 @@ function drawRightLeg() {
   context.stroke();
 }
 
-
 // Track selected and disabled letters
 let selectedLetters = [];
 let disabledLetters = [];
@@ -266,14 +242,12 @@ canvas.addEventListener("click", function (event) {
     ) {
       const selectedLetter = alphabet[i];
       console.log("Selected letter:", selectedLetter);
-      
 
       // Check if the selected letter is already disabled
       if (disabledLetters.includes(selectedLetter)) {
         console.log("Letter already disabled.");
         break;
       }
-
 
       // For example, check if the selected letter is present in the recipe name
 
@@ -301,13 +275,14 @@ canvas.addEventListener("click", function (event) {
           const maxLineWidth = canvas.width - charGap;
 
           // Define lineSpacing
-          const lineSpacing = 30;  // You can adjust this value as needed
+          const lineSpacing = 30; // You can adjust this value as needed
 
           // Display the selected letter in the appropriate positions
           for (let j = 0; j < title.length; j++) {
             if (title[j] === selectedLetter) {
               const lineX = canvas.width - title.length * charGap + j * charGap;
-              lineY = lineY + Math.floor(j / (maxLineWidth / charGap)) * lineSpacing;
+              lineY =
+                lineY + Math.floor(j / (maxLineWidth / charGap)) * lineSpacing;
               context.fillStyle = "black";
               context.font = "20px Arial";
               context.textAlign = "center";
@@ -355,25 +330,25 @@ function updateIncorrectGuesses() {
   incorrectGuesses++;
   switch (incorrectGuesses) {
     case 1:
-      drawHead();
+      drawHangmanStand();
       break;
     case 2:
-      drawBody();
+      drawHead();
       break;
     case 3:
-      drawLeftArm();
+      drawBody();
       break;
     case 4:
-      drawRightArm();
+      drawLeftArm();
       break;
     case 5:
-      drawLeftLeg();
+      drawRightArm();
       break;
     case 6:
-      drawRightLeg();
+      drawLeftLeg();
       break;
     case 7:
-      drawHangmanStand();
+      drawRightLeg();
       break;
   }
 }
@@ -384,9 +359,9 @@ function gameOver(secretWord) {
   var playAgain = prompt("Do you want to play again? (yes/no)");
   if (playAgain.toLowerCase() === "yes") {
     resetGame();
-    return true;  // Start a new game
+    return true; // Start a new game
   } else {
-    return false;  // End the game
+    return false; // End the game
   }
 }
 

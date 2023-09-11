@@ -2,15 +2,12 @@
 // Declare variables
 let homeButtons = document.querySelectorAll(".homeItems__links");
 let sound = document.querySelector(".animationFrame__sound");
-const mainPage = document.querySelector(".main-page");
-const singlePlayerPage = document.querySelector(".single-player-page");
-// let easy = document.querySelector(".easy");
-// let medium = document.querySelector(".medium");
-// let hard = document.querySelector(".hard");
 
-let soundOn = false;
+let soundOnOff = true;
 
-const backgroundMusic = new Audio("./assets/sounds/Freedom.mp3");
+
+const tickAudio = new Audio("./assets/sounds/Check mark sound effect.mp3")
+const backgroundMusic = new Audio('./assets/sounds/Freedom.mp3');
 
 // Play audio when sound icon clicked
 sound.addEventListener("click", () => {
@@ -35,23 +32,23 @@ function playBackgroundMusic() {
 	backgroundMusic.play();
 }
 
-function pauseBackgroundMusic() {
-	backgroundMusic.pause();
-}
+ function pauseBackgroundMusic() {
+    backgroundMusic.pause();
+  }
 
-// Switch to single player
+  
 
-const switchToSinglePlayer = () => {
-	mainPage.style.display = "none";
-	singlePlayerPage.style.display = "flex";
-};
+//   const characterElement = document.querySelector(".animationFrame__boyCharacter");
+// let currentBackgroundPositionX = 0;
+// let frameWidth = 644; // Adjust this value based on the width of each frame in your sprite sheet
 
-const backToHome = () => {
-	mainPage.style.display = "flex";
-	singlePlayerPage.style.display = "none";
-};
+// function changeBackgroundPosition() {
+//   characterElement.style.backgroundPosition = `${currentBackgroundPositionX}px 0`;
+//   currentBackgroundPositionX -= frameWidth; // Adjust based on sprite sheet frame width
+// }
 
-document.querySelector(".homeIcon").addEventListener("click", backToHome);
-document.querySelector(".btn-single-player")
-		.addEventListener("click", switchToSinglePlayer);
+// setInterval(changeBackgroundPosition, 800);
 
+
+
+// export { pauseBackgroundMusic, playBackgroundMusic,tickAudio , backgroundMusic, soundOnOff};

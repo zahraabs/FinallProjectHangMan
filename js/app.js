@@ -1,56 +1,57 @@
 "use strict";
 // Declare variables
-let homeButtons = document.querySelectorAll(".homeItems__links")
+let homeButtons = document.querySelectorAll(".homeItems__links");
 let sound = document.querySelector(".animationFrame__sound");
+const mainPage = document.querySelector(".main-page");
+const singlePlayerPage = document.querySelector(".single-player-page");
+// let easy = document.querySelector(".easy");
+// let medium = document.querySelector(".medium");
+// let hard = document.querySelector(".hard");
 
-let soundOnOff = true;
+let soundOn = false;
 
+const backgroundMusic = new Audio("./assets/sounds/Freedom.mp3");
 
-const tickAudio = new Audio("./assets/sounds/Check mark sound effect.mp3")
-const backgroundMusic = new Audio('./assets/sounds/Freedom.mp3');
-
-playBackgroundMusic();
-
-homeButtons.forEach(item => {
-    item.innerText = item.innerText.toUpperCase();
-})
-
+// Play audio when sound icon clicked
 sound.addEventListener("click", () => {
-    if (soundOnOff) {
-        sound.src = "./assets/images/soundOff.png";
-        soundOnOff = false;
-          pauseBackgroundMusic();
-    } else {
-        sound.src = "./assets/images/sound.png";
-        soundOnOff = true;
-        tickAudio.play();
-        playBackgroundMusic();
-    }
-})
+	if (!soundOn) {
+		sound.src = "./assets/images/sound.png";
+		soundOn = true;
+		playBackgroundMusic();
+	} else {
+		sound.src = "./assets/images/soundOff.png";
+		soundOn = false;
+		pauseBackgroundMusic();
+	}
+});
 
+homeButtons.forEach((item) => {
+	item.innerText = item.innerText.toUpperCase();
+});
 
 function playBackgroundMusic() {
-    backgroundMusic.loop = true; 
-    backgroundMusic.play();
-  }
+	// backgroundMusic.loop = true;
+	backgroundMusic.muted = false;
+	backgroundMusic.play();
+}
 
- function pauseBackgroundMusic() {
-    backgroundMusic.pause();
-  }
+function pauseBackgroundMusic() {
+	backgroundMusic.pause();
+}
 
-  
+// Switch to single player
 
-//   const characterElement = document.querySelector(".animationFrame__boyCharacter");
-// let currentBackgroundPositionX = 0;
-// let frameWidth = 644; // Adjust this value based on the width of each frame in your sprite sheet
+const switchToSinglePlayer = () => {
+	mainPage.style.display = "none";
+	singlePlayerPage.style.display = "flex";
+};
 
-// function changeBackgroundPosition() {
-//   characterElement.style.backgroundPosition = `${currentBackgroundPositionX}px 0`;
-//   currentBackgroundPositionX -= frameWidth; // Adjust based on sprite sheet frame width
-// }
+const backToHome = () => {
+	mainPage.style.display = "flex";
+	singlePlayerPage.style.display = "none";
+};
 
-// setInterval(changeBackgroundPosition, 800);
+document.querySelector(".homeIcon").addEventListener("click", backToHome);
+document.querySelector(".btn-single-player")
+		.addEventListener("click", switchToSinglePlayer);
 
-
-
-// export { pauseBackgroundMusic, playBackgroundMusic,tickAudio , backgroundMusic, soundOnOff};

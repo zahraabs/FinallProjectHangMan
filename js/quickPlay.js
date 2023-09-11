@@ -8,7 +8,11 @@ const result = document.querySelector(".result");
 let currentWord = null;
 let wordHint = null;
 let level = words;
+let step = 0;
+let finishGame = false;
+let correctResponse = 0;
 
+quickPlayBtns.addEventListener("click", clickOnEachBtn);
 
 function giveMeWordsOnScreen() {
     let wordsDataOnArray = Array.from({ length: 26 }, (_, index) => String.fromCharCode(65 + index));
@@ -52,6 +56,42 @@ function showHint(targetHint) {
     hint.innerText = "hint: "
     hint.textContent += targetHint;
     blankParentElement.appendChild(hint);
+}
+
+function clickOnEachBtn(e) {
+
+    if (finishGame) return;
+
+    const letterClicked = e.target.textContent;
+
+    if (letterClicked.length === 1) {
+        const allLettersElement = document.querySelectorAll(".quickPlay__paragraph");
+
+        let status = 0;
+
+        for (const spanElement of allLettersElement) {
+            if (letterClicked === spanElement.textContent.toUpperCase()) {
+                spanElement.parentElement.textContent = letterClicked;
+                status++;
+                correctResponse++;
+            }
+        }
+
+        if (status == 0) {
+            e.target.classList.add("quickPlay__wrong")
+            hangman()
+        }
+
+        e.target.setAttribute("disabled", "disabled")
+
+        
+    
+    }
+}
+
+function hangman() {
+    hangBody.innerHTML += `<img src="assets/images/hangman-${step}.svg" alt="hang stand" />`;
+    step++;
 }
 
 (function () {

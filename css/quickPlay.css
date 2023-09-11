@@ -70,14 +70,14 @@ body {
   font-weight: bold;
   height: 23px;
   line-height: 30px;
-  border-bottom: 2px solid rgb(0, 0, 0);
+  border-bottom: 2px solid red;
   margin-right: 10px;
 }
 
 .quickPlay__blanksParent--top {
   width: 500px;
   position: absolute;
-  top: -400%;
+  top: -40%;
   left: -30%;
   font-size: 20px;
 }
@@ -129,9 +129,18 @@ body {
   position: relative;
 }
 
- canvas {
-  display: block;
-  margin: 0 auto;
-  background-color: #ffffff;
-  border: 1px solid #000000;
+.quickPlay__hang-body>img {
+  position: absolute;
+}
+
+.result {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  background-color: white;
+
+  display: none;
 }

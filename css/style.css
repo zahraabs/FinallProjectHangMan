@@ -1,16 +1,6 @@
 @font-face {
-  font-family: "Proxima";
-  src: url(./../assets/fonts/ProximaSoft-Regular.woff2);
-}
-
-@font-face {
-  font-family: ProximaBold;
-  src: url(./../assets/fonts/ProximaSoft-ExtraBold.woff);
-} */
-
-@font-face {
-  font-family: "hangman";
-  src: url(./../assets/fonts/Photographs.ttf);
+	font-family: "hangman";
+	src: url(./../assets/fonts/Photographs.ttf);
 }
 *,
 *::after,
@@ -21,7 +11,7 @@
 }
 
 body {
-  font-family: "hangman";
+	font-family: "hangman";
 }
 
 .container {
@@ -88,12 +78,12 @@ body {
 	}
 }
 
-.logoName {
-  margin-top: 50px;
-  font-size: 7rem;
-  letter-spacing: 1rem;
-  text-transform: uppercase;
-}
+/* .logoName {
+	margin-top: 50px;
+	font-size: 7rem;
+	letter-spacing: 1rem;
+	text-transform: uppercase;
+} */
 
 .homeItems {
 	position: absolute;
@@ -120,10 +110,10 @@ body {
 	z-index: 2;
 }
 
-.homeItems__links{
-  color: #000;
-  text-decoration: none;
-  font-size: 2rem;
+.homeItems__links {
+	color: #000;
+	text-decoration: none;
+	font-size: 2rem;
 }
 
 .animationFrame__sound {

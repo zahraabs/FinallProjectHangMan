@@ -13,7 +13,7 @@ let finishGame = false;
 let correctResponse = 0;
 
 quickPlayBtns.addEventListener("click", clickOnEachBtn);
-// result.addEventListener('click', resetGame);
+result.addEventListener('click', resetGame);
 
 function giveMeWordsOnScreen() {
     let wordsDataOnArray = Array.from({ length: 26 }, (_, index) => String.fromCharCode(65 + index));
@@ -110,6 +110,28 @@ function showResult(res) {
 
     result.style.display = "block";
     finishGame = true;
+}
+
+function resetGame(e) {
+    const resetBtn = result.querySelector(".reset");
+if (e.target === resetBtn) {
+    currentWord = null;
+    wordHint = null;
+    step = 0;
+    correctResponse = 0;
+    finishGame = false;
+
+    result.style.display = "none";
+    hangBody.innerHTML = "";
+    quickPlayBtns.innerHTML = "";
+    blankParentElement.innerHTML = "";
+
+    giveMeWordsOnScreen();
+    getRandomWord(level);
+    showWord(currentWord);
+    showHint(wordHint);
+}
+   
 }
 
 (function () {

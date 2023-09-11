@@ -13,6 +13,7 @@ let finishGame = false;
 let correctResponse = 0;
 
 quickPlayBtns.addEventListener("click", clickOnEachBtn);
+// result.addEventListener('click', resetGame);
 
 function giveMeWordsOnScreen() {
     let wordsDataOnArray = Array.from({ length: 26 }, (_, index) => String.fromCharCode(65 + index));
@@ -84,14 +85,31 @@ function clickOnEachBtn(e) {
 
         e.target.setAttribute("disabled", "disabled")
 
-        
-    
+        if (step >= 7) showResult(0);
+        if (correctResponse >= currentWord.length) showResult(1);
+
     }
 }
 
 function hangman() {
     hangBody.innerHTML += `<img src="assets/images/hangman-${step}.svg" alt="hang stand" />`;
     step++;
+}
+
+function showResult(res) {
+    if (res === 0) {
+        result.innerHTML = `<p>GameOver</p>
+        <p>The correct word was : ${currentWord}</p>
+        <img src="assets/images/lost.gif" width="50" height="50" />
+        <button class="reset">Reset</button>`
+    } else {
+        result.innerHTML = `<p>Victory</p>
+        <img src="assets/images/victory.gif" />
+        <button class="reset">Reset</button>`
+    }
+
+    result.style.display = "block";
+    finishGame = true;
 }
 
 (function () {

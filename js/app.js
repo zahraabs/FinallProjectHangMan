@@ -3,11 +3,9 @@
 let homeButtons = document.querySelectorAll(".homeItems__links");
 let sound = document.querySelector(".animationFrame__sound");
 
-let soundOnOff = true;
+let soundOn = false;
 
-
-const tickAudio = new Audio("./assets/sounds/Check mark sound effect.mp3")
-const backgroundMusic = new Audio('./assets/sounds/Freedom.mp3');
+const backgroundMusic = new Audio("./assets/sounds/Freedom.mp3");
 
 // Play audio when sound icon clicked
 sound.addEventListener("click", () => {
@@ -32,23 +30,27 @@ function playBackgroundMusic() {
 	backgroundMusic.play();
 }
 
- function pauseBackgroundMusic() {
-    backgroundMusic.pause();
-  }
+function pauseBackgroundMusic() {
+	backgroundMusic.pause();
+}
 
-  
+// Switch to single player
 
-//   const characterElement = document.querySelector(".animationFrame__boyCharacter");
-// let currentBackgroundPositionX = 0;
-// let frameWidth = 644; // Adjust this value based on the width of each frame in your sprite sheet
+const switchToSinglePlayer = () => {
+	const mainPage = document.querySelector(".main-page");
+	const singlePlayerPage = document.querySelector(".single-player-page");
+	mainPage.style.display = "none";
+	singlePlayerPage.style.display = "flex";
+};
 
-// function changeBackgroundPosition() {
-//   characterElement.style.backgroundPosition = `${currentBackgroundPositionX}px 0`;
-//   currentBackgroundPositionX -= frameWidth; // Adjust based on sprite sheet frame width
-// }
+const backToHome = () => {
+	const mainPage = document.querySelector(".main-page");
+	const singlePlayerPage = document.querySelector(".single-player-page");
+	mainPage.style.display = "flex";
+	singlePlayerPage.style.display = "none";
+};
 
-// setInterval(changeBackgroundPosition, 800);
-
-
-
-// export { pauseBackgroundMusic, playBackgroundMusic,tickAudio , backgroundMusic, soundOnOff};
+document.querySelector(".homeIcon").addEventListener("click", backToHome);
+document
+	.querySelector(".btn-single-player")
+	.addEventListener("click", switchToSinglePlayer);

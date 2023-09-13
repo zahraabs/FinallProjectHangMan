@@ -1,7 +1,7 @@
 "use strict";
 // Declare variables
 let homeButtons = document.querySelectorAll(".homeItems__links");
-let sound = document.querySelector(".animationFrame__sound");
+export let sound = document.querySelector(".animationFrame__sound");
 
 let soundOn = false;
 
@@ -55,7 +55,7 @@ document
 	.querySelector(".btn-single-player")
 	.addEventListener("click", switchToSinglePlayer);
 
-	// Modal
+// Modal
 // Selectors
 const modal = document.querySelector(".modal");
 const openModalBtn = document.querySelector(".questionIcon");
@@ -78,3 +78,35 @@ modal.addEventListener("click", (e) => {
 		modal.classList.add("hidden");
 	}
 });
+
+// Play game based on selected level
+let selectedLevel;
+
+const easyLevelButton = document.getElementById("easy-level");
+const mediumLevelButton = document.getElementById("medium-level");
+const hardLevelButton = document.getElementById("hard-level");
+const playButton = document.querySelector(".buttonPlay");
+
+easyLevelButton.addEventListener("click", function () {
+	selectedLevel = "easy";
+});
+
+mediumLevelButton.addEventListener("click", function () {
+	selectedLevel = "medium";
+});
+
+hardLevelButton.addEventListener("click", function () {
+	selectedLevel = "hard";
+});
+
+playButton.addEventListener("click", function () {
+	// Show the page for the selected level.
+	if (selectedLevel === "easy") {
+		window.location.href = "./quickPlay.html?level=easy";
+	} else if (selectedLevel === "medium") {
+		window.location.href = "./quickPlay.html?level=medium";
+	} else if (selectedLevel === "hard") {
+		window.location.href = "./quickPlay.html?level=hard";
+	}
+});
+

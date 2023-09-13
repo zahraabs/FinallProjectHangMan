@@ -78,13 +78,6 @@ body {
 	}
 }
 
-/* .logoName {
-	margin-top: 50px;
-	font-size: 7rem;
-	letter-spacing: 1rem;
-	text-transform: uppercase;
-} */
-
 .homeItems {
 	position: absolute;
 	left: 50%;
@@ -97,24 +90,6 @@ body {
 	gap: 20px;
 }
 
-.homeItems__bottons {
-	width: 220px;
-	height: 90px;
-	font-weight: bold;
-	background-color: #fff;
-	border: 5px solid #000;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	cursor: pointer;
-	z-index: 2;
-}
-
-.homeItems__links {
-	color: #000;
-	text-decoration: none;
-	font-size: 2rem;
-}
 
 .animationFrame__sound {
 	position: absolute;
@@ -123,9 +98,6 @@ body {
 	cursor: pointer;
 }
 
-/* .main-page {
-	display: none;
-} */
 .single-player-page {
 	display: none;
 }
@@ -133,6 +105,7 @@ body {
 .hidden {
 	display: none;
 }
+
 .modal {
 	position: fixed;
 	top: 0;
@@ -141,7 +114,6 @@ body {
 	height: 100%;
 	background-color: rgba(0, 0, 0, 0.719);
 	z-index: 1000;
-	/* display: none; */
 }
 
 .modal-content {
@@ -153,4 +125,7 @@ body {
 	height: 300px;
 	background-color: white;
 	padding: 20px;
+	text-transform: uppercase;
+	text-align: center;
 }
+

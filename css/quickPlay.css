@@ -63,7 +63,7 @@ body {
   /* background-color: deeppink; */
 }
 
-.quickPlay__hang-body>img {
+.quickPlay__hang-body > img {
   position: absolute;
   z-index: 2;
 }
@@ -76,7 +76,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  /* backgro  und-color: yellow; */
+  /* background-color: yellow; */
 }
 
 .quickPlay__button {
@@ -117,12 +117,10 @@ body {
   align-items: center;
 }
 
-
 .quickPlay__blanksParent--top {
   width: 80%;
   font-size: 30px;
 }
-
 
 .quickPlay__paragraph {
   display: none;
@@ -221,8 +219,8 @@ body {
 }
 
 .homeIcon {
-	position: absolute;
-	top: 2%;
-	left: 2%;
-	cursor: pointer;
+  position: absolute;
+  top: 2%;
+  left: 2%;
+  cursor: pointer;
 }

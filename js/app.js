@@ -64,7 +64,6 @@ const closeModalBtn = document.querySelector(".btn-close");
 // Modal functionality
 // Open the modal
 openModalBtn.addEventListener("click", () => {
-	console.log("open clicked");
 	modal.classList.remove("hidden");
 });
 
@@ -89,14 +88,32 @@ const playButton = document.querySelector(".buttonPlay");
 
 easyLevelButton.addEventListener("click", function () {
 	selectedLevel = "easy";
+	easyLevelButton.classList.toggle("homeItems__buttons-active");
+	easyLevelButton.children[0].classList.toggle("homeItems__links-active");
+	mediumLevelButton.classList.remove("homeItems__buttons-active");
+	mediumLevelButton.children[0].classList.remove("homeItems__links-active");
+	hardLevelButton.classList.remove("homeItems__buttons-active");
+	hardLevelButton.children[0].classList.remove("homeItems__links-active");
 });
 
 mediumLevelButton.addEventListener("click", function () {
 	selectedLevel = "medium";
+	mediumLevelButton.classList.toggle("homeItems__buttons-active");
+	mediumLevelButton.children[0].classList.toggle("homeItems__links-active");
+	easyLevelButton.classList.remove("homeItems__buttons-active");
+	easyLevelButton.children[0].classList.remove("homeItems__links-active");
+	hardLevelButton.classList.remove("homeItems__buttons-active");
+	hardLevelButton.children[0].classList.remove("homeItems__links-active");
 });
 
 hardLevelButton.addEventListener("click", function () {
 	selectedLevel = "hard";
+	hardLevelButton.classList.toggle("homeItems__buttons-active");
+	hardLevelButton.children[0].classList.toggle("homeItems__links-active");
+	easyLevelButton.classList.remove("homeItems__buttons-active");
+	easyLevelButton.children[0].classList.remove("homeItems__links-active");
+	mediumLevelButton.classList.remove("homeItems__buttons-active");
+	mediumLevelButton.children[0].classList.remove("homeItems__links-active");
 });
 
 playButton.addEventListener("click", function () {

@@ -1,70 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/singlePlayer.css" />
+    <title>Hang Man</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./css/style.css" />
-  <link rel="stylesheet" href="./css/singlePlayer.css" />
-  <title>Hang Man</title>
-</head>
+  <body>
+    <div class="container">
+      <div class="animationFrame">
+        <div class="animationFrame__boyContainer">
+          <div class="animationFrame__boyCharacter"></div>
+        </div>
 
-<body>
-  <div class="container ">
+        <div class="logoName">hangman</div>
 
-    <div class="animationFrame">
-      <div class="animationFrame__boyContainer">
-        <div class="animationFrame__boyCharacter"></div>
+        <!-- Initial Page -->
+        <div class="homeItems main-page">
+          <div class="homeItems__buttons">
+            <a href="./quickPlay.html" class="homeItems__links"> quick play</a>
+          </div>
+          <div class="homeItems__buttons btn-single-player">
+            <a href="#" class="homeItems__links">single player</a>
+          </div>
+        </div>
+
+        <img
+          class="animationFrame__sound"
+          src="assets/images/soundOff.png"
+          alt="sound"
+        />
+
+        <!-- Single Player Page -->
+        <div class="single-player-page">
+          <div class="modal hidden">
+            <div class="modal-content">
+              <h2>
+                Try to guess the secret word one letter at a time. If you guess
+                an incorrect letter, your hangman will loose. To win, spell the
+                word.
+              </h2>
+              <button class="btn-close">Close</button>
+            </div>
+          </div>
+          <div class="homeItems">
+            <div class="homeItems__buttons" id="easy-level">
+              <a href="#" class="homeItems__links">easy</a>
+            </div>
+            <div class="homeItems__buttons" id="medium-level">
+              <a href="#" class="homeItems__links">medium</a>
+            </div>
+            <div class="homeItems__buttons" id="hard-level">
+              <a href="#" class="homeItems__links">hard</a>
+            </div>
+          </div>
+
+          <a class="buttonPlay" href="#">play</a>
+
+          <img
+            class="questionIcon"
+            src="./assets/images/question.svg"
+            alt="QuestionMark"
+          />
+          <a class="homeIcon" href="#">
+            <img
+              class="homeIcon__image"
+              src="./assets/images/home.png"
+              alt="goHome"
+            />
+          </a>
+        </div>
       </div>
-
-      <div class="logoName">hangman</div>
-
-      <!-- Initial Page -->
-      <div class="homeItems main-page">
-        <div class="homeItems__bottons">
-          <a href="./quickPlay.html" class="homeItems__links"> quick play</a>
-        </div>
-        <div class="homeItems__bottons btn-single-player">
-          <a href="#" class="homeItems__links ">single player</a>
-        </div>
-      </div>
-
-      <img class="animationFrame__sound" src="assets/images/soundOff.png" alt="sound" />
-
-
-      <!-- Single Player Page -->
-      <div class="single-player-page">
-        <div class="modal hidden">
-          <div class="modal-content">
-            <h2>Try to guess the secret word one letter at a time. If you guess an incorrect letter, your hangman will loose. To win, spell the word. </h2>
-            <button class="btn-close">Close</button>
-          </div>
-        </div>
-        <div class="homeItems">
-          <div class="homeItems__bottons" id="easy-level">
-            <a href="#" class="homeItems__links">easy</a>
-          </div>
-          <div class="homeItems__bottons" id="medium-level">
-            <a href="#" class="homeItems__links">medium</a>
-          </div>
-          <div class="homeItems__bottons" id="hard-level">
-            <a href="#" class="homeItems__links">hard</a>
-          </div>
-        </div>
-
-        <a class="buttonPlay" href="#">play</a>
-
-        <img class="questionIcon" src="./assets/images/question.svg" alt="QuestionMark">
-        <a class="homeIcon" href="#">
-          <img class="homeIcon__image" src="./assets/images/home.png" alt="goHome">
-        </a>
-      </div>
-
     </div>
-  </div>
 
-  <script type="module" src="./js/app.js"></script>
-
-</body>
-
+    <script type="module" src="./js/app.js"></script>
+  </body>
 </html>

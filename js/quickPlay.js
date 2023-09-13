@@ -1,5 +1,6 @@
 import { words, easyWords, mediumWords, hardWords } from "./wordList.js";
 
+// Declare variables
 const quickPlayBtns = document.querySelector(".quickPlay__buttons");
 const blankParentElement = document.querySelector(".quickPlay__blanksParent");
 const hangBody = document.querySelector(".quickPlay__hang-body");

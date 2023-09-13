@@ -32,17 +32,6 @@ body {
   /* background: yellow; */
 }
 
-/* .quickPlay{
-  width: 80%;
-  height: 80%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 50px;
-  background-color: purple;
-} */
-
 .quickPlay__root {
   width: 100%;
   height: 70%;

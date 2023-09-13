@@ -20,6 +20,7 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-direction: column;
 }
 
 .animationFrame {
@@ -78,6 +79,17 @@ body {
 	}
 }
 
+.logoName {
+	position: absolute;
+	top: 5%;
+	left: 50%;
+	transform: translateX(-50%);
+	font-size: 7rem;
+	letter-spacing: 1rem;
+	text-transform: uppercase;
+	z-index: 2;
+}
+
 .homeItems {
 	position: absolute;
 	left: 50%;
@@ -90,6 +102,63 @@ body {
 	gap: 20px;
 }
 
+.homeItems__buttons {
+	width: 220px;
+	height: 90px;
+	font-weight: bold;
+	background-color: #fff;
+	border: 5px solid #000;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	z-index: 2;
+	color: #000;
+}
+
+.homeItems__links {
+	color: #000;
+	text-decoration: none;
+	font-size: 3rem;
+	text-transform: uppercase;
+	font-weight: 700;
+}
+
+.homeItems__buttons-active{
+	background-color: #000;
+}
+
+.homeItems__links-active{
+	color: #ffffff;
+}
+
+.buttonPlay {
+	position: absolute;
+	bottom: 30px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 220px;
+	height: 90px;
+	color: #fff;
+	background-color: #000;
+	border: 5px solid #000;
+	border-radius: 3px;
+	font-size: 4.5rem;
+	text-decoration: none;
+	text-transform: uppercase;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	z-index: 2;
+}
+
+.homeIcon {
+	position: absolute;
+	top: 2%;
+	left: 2%;
+	cursor: pointer;
+}
 
 .animationFrame__sound {
 	position: absolute;
@@ -127,5 +196,28 @@ body {
 	padding: 20px;
 	text-transform: uppercase;
 	text-align: center;
+	font-size: 28px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 15px;
 }
 
+.btn-close{
+	padding: 7px 20px;
+	color: blue;
+	font-size: 18px;
+	border: 0;
+	border-radius: 4px;
+}
+
+.questionIcon {
+	width: 70px;
+	height: 65px;
+	opacity: 0.925;
+	position: absolute;
+	bottom: 35px;
+	left: 2%;
+	cursor: pointer;
+}

@@ -15,50 +15,14 @@ body {
 	font-family: "hangman";
 }
 
-/* .container {
+.container {
     width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-} */
-
-/* .animationFrame {
-	position: relative;
-	width: 300px;
-	height: 700px;
-	box-shadow: inset 0 0 16px 32px #fff;
-	background: url(../assets/images/download.png);
-	background-repeat: repeat-x;
-	animation: backgroundChange 20s linear infinite;
-	align-items: center;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-} */
-
-/* @keyframes backgroundChange {
-	0% {
-		background-position: -800px top;
-	}
-
-	100% {
-		background-position: 2200px top;
-	}
-} */
-
-/* .animationFrame__boyContainer {
-	position: absolute;
-	top: 320px;
-	right: 30px;
-	width: 270px;
-	height: 300px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-} */
+}
 
 .animationFrame__boyCharacter {
 	width: 190px;
@@ -125,7 +89,7 @@ body {
 
 .buttonPlay {
 	position: absolute;
-	bottom: 0;
+	bottom: 30px;
 	left: 50%;
 	transform: translateX(-50%);
 	width: 220px;
@@ -152,8 +116,11 @@ body {
 }
 
 .questionIcon {
+	width: 70px;
+	height: 65px;
+	opacity: 0.925;
 	position: absolute;
-	bottom: 2%;
+	bottom: 40px;
 	left: 2%;
 	cursor: pointer;
 }
@@ -163,4 +130,21 @@ body {
 	bottom: 18px;
 	left: 6%;
 	cursor: pointer;
+}
+
+.modal-content{
+	font-size: 28px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 15px;
+}
+
+.btn-close{
+	padding: 7px 20px;
+	color: blue;
+	font-size: 18px;
+	border: 0;
+	border-radius: 4px;
 }

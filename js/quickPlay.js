@@ -50,21 +50,25 @@ let getRandomWord = (level) => {
 };
 
 function showWord(targetWord) {
-	for (const char of targetWord) {
-		const alpha = document.createElement("p");
-		const paragraph = document.createElement("span");
+    const wordsWrapper = document.createElement('div');
+    wordsWrapper.classList.add('wordsWrapper')
+    blankParentElement.appendChild(wordsWrapper);
+    for (const char of targetWord) {
+        const alpha = document.createElement("p");
+        const paragraph = document.createElement("span");
 
-		alpha.classList.add("quickPlay__alphabet");
-		paragraph.classList.add("quickPlay__paragraph");
-		paragraph.textContent = char;
-		alpha.appendChild(paragraph);
-		blankParentElement.appendChild(alpha);
+        alpha.classList.add("quickPlay__alphabet");
+        paragraph.classList.add("quickPlay__paragraph");
+        paragraph.textContent = char;
+        alpha.appendChild(paragraph);
+        wordsWrapper.appendChild(alpha);
 
-		const invalidChars = [" ", "-", "&", ",", "_", "(", ")"];
-		if (invalidChars.includes(alpha.textContent)) {
-			alpha.classList.remove("quickPlay__alphabet");
-		}
-	}
+        const invalidChars = [" ", "-", "&", ",", "_", "(", ")"];
+        if (invalidChars.includes(alpha.textContent)) {
+            alpha.classList.remove("quickPlay__alphabet");
+        }
+    }
+
 }
 
 function showHint(targetHint) {
@@ -114,17 +118,18 @@ function hangman() {
 
 function showResult(res) {
 	if (res === 0) {
-		result.innerHTML = `<p>GameOver</p>
-        <p>The correct word was : ${currentWord}</p>
-        <img src="assets/images/lost.gif" width="50" height="50" />
-        <button class="reset">Reset</button>`;
-	} else {
-		result.innerHTML = `<p>Victory</p>
-        <img src="assets/images/victory.gif" />
-        <button class="reset">Reset</button>`;
-	}
+        result.innerHTML = `<p class="game-over">Game Over</p>
+        <p class="correct-word">The correct word was : ${currentWord}</p>
+        <img class="result-gif" src="assets/images/lost.gif"/>
+        <button class="reset">Reset</button>`
+    } else {
+        result.innerHTML = `<p class="game-win">Victory</p>
+        <img class="result-gif" src="assets/images/victory.gif" />
+        <button class="reset">Reset</button>`
+    }
 
-	result.style.display = "block";
+	result.style.opacity = "1";
+    result.style.zIndex = 999;
 	finishGame = true;
 }
 
@@ -137,7 +142,9 @@ function resetGame(e) {
 		correctResponse = 0;
 		finishGame = false;
 
-		result.style.display = "none";
+	
+		result.style.opacity = "0";
+		result.style.zIndex = "-1";
 		hangBody.innerHTML = "";
 		quickPlayBtns.innerHTML = "";
 		blankParentElement.innerHTML = "";

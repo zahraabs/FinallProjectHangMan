@@ -121,11 +121,17 @@ function showResult(res) {
         result.innerHTML = `<p class="game-over">Game Over</p>
         <p class="correct-word">The correct word was : ${currentWord}</p>
         <img class="result-gif" src="assets/images/lost.gif"/>
-        <button class="reset">Reset</button>`
+        <button class="reset">Reset</button>
+		<a class="homeIcon" href="./index.html">
+		<img class="homeIcon__image" src="./assets/images/home.png" alt="goHome">
+	  </a>`
     } else {
         result.innerHTML = `<p class="game-win">Victory</p>
         <img class="result-gif" src="assets/images/victory.gif" />
-        <button class="reset">Reset</button>`
+        <button class="reset">Reset</button>
+		<a class="homeIcon" href="./index.html">
+		<img class="homeIcon__image" src="./assets/images/home.png" alt="goHome">
+	  </a>`
     }
 
 	result.style.opacity = "1";

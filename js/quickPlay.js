@@ -7,7 +7,7 @@ const result = document.querySelector(".result");
 
 let currentWord = null;
 let wordHint = null;
-let step = 0;
+let step = 1;
 let finishGame = false;
 let correctResponse = 0;
 let level = words;
@@ -138,21 +138,21 @@ function resetGame(e) {
 	if (e.target === resetBtn) {
 		currentWord = null;
 		wordHint = null;
-		step = 0;
+		step = 1;
 		correctResponse = 0;
 		finishGame = false;
-
-	
+		
 		result.style.opacity = "0";
 		result.style.zIndex = "-1";
 		hangBody.innerHTML = "";
 		quickPlayBtns.innerHTML = "";
 		blankParentElement.innerHTML = "";
-
+		
 		giveMeWordsOnScreen();
 		getRandomWord(level);
 		showWord(currentWord);
 		showHint(wordHint);
+		hangBody.innerHTML = `<img src="assets/images/hangman-0.svg" alt="hang stand" />`;
 	}
 }
 

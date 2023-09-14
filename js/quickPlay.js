@@ -121,14 +121,14 @@ function showResult(res) {
 							<img class="result-gif" src="assets/images/lost.gif"/>
 							<button class="reset">Reset</button>
 							<a class="homeIcon" href="./index.html">
-							<img class="homeIcon__image" src="./assets/images/home.png" alt="goHome">
+							<img class="homeIcon__image homeIcon__image--smaller" src="./assets/images/home.png" alt="goHome">
 						</a>`
 	} else {
 		result.innerHTML = `<p class="game-win">Victory</p>
 							<img class="result-gif" src="assets/images/victory.gif" />
 							<button class="reset">Reset</button>
 							<a class="homeIcon" href="./index.html">
-							<img class="homeIcon__image" src="./assets/images/home.png" alt="goHome">
+							<img class="homeIcon__image homeIcon__image--smaller" src="./assets/images/home.png" alt="goHome">
 						</a>`
 	}
 

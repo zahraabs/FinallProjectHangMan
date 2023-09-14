@@ -8,6 +8,11 @@
   src: url(./../assets/fonts/ProximaSoft-ExtraBold.woff);
 }
 
+@font-face {
+  font-family: "hangman";
+  src: url(./../assets/fonts/Photographs.ttf);
+}
+
 *,
 *::after,
 *::before {
@@ -29,7 +34,6 @@ body {
   align-items: center;
   gap: 50px;
   overflow-x: hidden;
-  /* background: yellow; */
 }
 
 .quickPlay__root {
@@ -39,7 +43,6 @@ body {
   justify-content: center;
   align-items: center;
   gap: 50px;
-  /* background-color: red; */
 }
 
 .quickPlay__hang-body {
@@ -49,7 +52,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: deeppink; */
 }
 
 .quickPlay__hang-body > img {
@@ -65,7 +67,6 @@ body {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  /* background-color: yellow; */
 }
 
 .quickPlay__button {
@@ -86,7 +87,6 @@ body {
   justify-content: center;
   align-items: center;
   gap: 50px;
-  /* background-color: green; */
 }
 
 .wordsWrapper {
@@ -161,13 +161,12 @@ body {
   transform: translate(-50%, -50%);
   width: 450px;
   padding: 10px 0;
-  background-color: rgb(64, 64, 64);
+  background-color: #3a3a3a;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10px;
   transition: 0.5s;
   opacity: 0;
   z-index: -1;
@@ -180,31 +179,43 @@ body {
 }
 
 .game-over {
-  color: red;
+  color: rgb(230, 9, 9);
+  font-family: "hangman";
+  font-size: 62px;
+  letter-spacing: 4px;
 }
 
 .game-win {
-  color: green;
+  color: rgb(0, 255, 0);
+  font-family: "hangman";
+  font-size: 62px;
+  letter-spacing: 4px;
 }
 
 .correct-word {
   color: rgb(0, 94, 201);
-  font-size: 20px;
+  font-size: 42px;
+  font-weight: 600;
+  font-family: "hangman";
 }
 
 .result-gif {
   width: 100px;
   height: 100px;
-  margin-right: 5px;
-  margin-bottom: 20px;
+  margin: 10px 5px 20px 0px;
 }
 
 .reset {
-  padding: 7px 20px;
-  color: blue;
-  font-size: 18px;
+  padding: 3px 25px;
+  color: #fff;
+  background-color: #000;
+  font-family: "hangman";
+  letter-spacing: 3px;
+  font-size: 32px;
+  font-weight: 700;
   border: 0;
   border-radius: 4px;
+  cursor: pointer;
 }
 
 .homeIcon {
@@ -212,4 +223,9 @@ body {
   top: 2%;
   left: 2%;
   cursor: pointer;
+}
+
+.homeIcon__image--smaller {
+  width: 45px;
+  height: 35px;
 }

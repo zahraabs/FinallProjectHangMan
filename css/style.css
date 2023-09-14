@@ -113,7 +113,6 @@ body {
 	align-items: center;
 	cursor: pointer;
 	z-index: 2;
-	color: #000;
 }
 
 .homeItems__links {
@@ -205,9 +204,12 @@ body {
 }
 
 .btn-close{
-	padding: 7px 20px;
-	color: blue;
-	font-size: 18px;
+	padding: 5px 30px;
+	color: #fff;
+	background-color: #000;
+	font-family: "hangman";
+	cursor: pointer;
+	font-size: 32px;
 	border: 0;
 	border-radius: 4px;
 }

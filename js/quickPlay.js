@@ -131,7 +131,7 @@ function showResult(res) {
 							<img class="homeIcon__image homeIcon__image--smaller" src="./assets/images/home.png" alt="goHome">
 						</a>`
 	}
-
+	res ? PlayAudio("winner.mp3") : PlayAudio("gameOver.mp3");
 	result.style.opacity = "1";
 	result.style.zIndex = 999;
 	finishGame = true;
@@ -159,6 +159,11 @@ function resetGame(e) {
 		hangBody.innerHTML = `<img src="assets/images/hangman-0.svg" alt="hang stand" />`;
 	}
 }
+
+const PlayAudio = (song) => {
+    const audio = new Audio(`./assets/sounds/${song}`);
+    audio.play();
+};
 
 (function () {
 	levelSelector();

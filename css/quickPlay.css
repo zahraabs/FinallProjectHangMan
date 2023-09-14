@@ -13,6 +13,10 @@
   src: url(./../assets/fonts/Photographs.ttf);
 }
 
+html {
+  overflow: hidden;
+}
+
 *,
 *::after,
 *::before {
@@ -33,7 +37,6 @@ body {
   justify-content: center;
   align-items: center;
   gap: 50px;
-  overflow-x: hidden;
 }
 
 .quickPlay__root {
@@ -54,7 +57,7 @@ body {
   align-items: center;
 }
 
-.quickPlay__hang-body > img {
+.quickPlay__hang-body> img {
   position: absolute;
   z-index: 2;
 }
@@ -161,7 +164,7 @@ body {
   transform: translate(-50%, -50%);
   width: 450px;
   padding: 10px 0;
-  background-color: #3a3a3a;
+  background-color: #4c4c4c;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -170,6 +173,8 @@ body {
   transition: 0.5s;
   opacity: 0;
   z-index: -1;
+  text-align: center;
+
 }
 
 .game-over,
@@ -193,7 +198,7 @@ body {
 }
 
 .correct-word {
-  color: rgb(0, 94, 201);
+  color: #101010;
   font-size: 42px;
   font-weight: 600;
   font-family: "hangman";
@@ -228,4 +233,105 @@ body {
 .homeIcon__image--smaller {
   width: 45px;
   height: 35px;
+}
+
+
+
+
+/* ----------------- Reasponsive ----------------- */
+@media(max-width: 600px) {
+
+  .container {
+    width: 600px;
+    height: 630px;
+  }
+
+  .quickPlay {
+    gap: 0;
+  }
+
+  .quickPlay__blanksParent {
+    width: 100%;
+    height: 30%;
+    gap: 50px;
+    justify-content: flex-end;
+  }
+
+  .quickPlay__blanksParent--top {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .quickPlay__root {
+    width: 100%;
+    height: 70%;
+    padding-top: 30px;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
+
+  }
+
+  .quickPlay__button {
+    width: 30px;
+    height: 30px;
+  }
+
+  .quickPlay__buttons {
+    height: auto;
+    gap: 0;
+    width: 90%;
+
+  }
+
+  .quickPlay__hang-body {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .quickPlay__hang-body > img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .quickPlay__button {
+    width: 35px;
+    height: 35px;
+    margin: 2px;
+  }
+
+  .homeIcon {
+    top: 2%;
+    left: 5%;
+  }
+
+  .homeIcon__image {
+    width: 40px;
+    height: 32px;
+  }
+
+  .result {
+    width: 300px;
+    padding: 10px;
+  }
+
+  .game-over {
+    font-size: 40px;
+  }
+  
+  .game-win {
+    font-size: 40px;
+  }
+ 
+  .homeIcon__image--smaller {
+    display: none;
+  }
+
+  .correct-word {
+    font-size: 34px;
+  }
 }

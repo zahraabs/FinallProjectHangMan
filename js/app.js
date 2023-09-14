@@ -119,6 +119,7 @@ function removeClass(level, className, linkClassName) {
 	level.classList.remove(`${className}`);
 	level.children[0].classList.remove(`${linkClassName}`);
 }
+
 function toggleClass(level, className, linkClassName) {
 	level.classList.toggle(`${className}`);
 	level.children[0].classList.toggle(`${linkClassName}`);

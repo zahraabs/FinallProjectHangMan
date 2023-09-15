@@ -1,10 +1,12 @@
 import { words, easyWords, mediumWords, hardWords } from "./wordList.js";
 
+// DOM Selectors
 const quickPlayBtns = document.querySelector(".quickPlay__buttons");
 const blankParentElement = document.querySelector(".quickPlay__blanksParent");
 const hangBody = document.querySelector(".quickPlay__hang-body");
 const result = document.querySelector(".result");
 
+// Variables
 let currentWord = null;
 let wordHint = null;
 let step = 1;
@@ -12,6 +14,7 @@ let finishGame = false;
 let correctResponse = 0;
 let level = words;
 
+// Event Listeners
 quickPlayBtns.addEventListener("click", clickOnEachBtn);
 result.addEventListener("click", resetGame);
 
@@ -133,6 +136,7 @@ function showResult(res) {
   const audioFile = res === 0 ? "gameOver.mp3" : "winner.mp3";
 
   result.innerHTML = `<p class="game-${res === 0 ? "over" : "win"}">${gameOverMessage}</p>
+                      <p class="correct-word"> ${res === 0 ? `The correct word was :${currentWord}` : ""}</p>
                       <img class="result-gif" src="assets/images/${gifImage}" />
                       <button class="reset">Reset</button>
                       <a class="homeIcon" href="./index.html">

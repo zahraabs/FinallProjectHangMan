@@ -207,7 +207,7 @@ body {
 }
 
 .correct-word {
-  color: #101010;
+  color: var(--white-color);
   font-size: 42px;
   font-weight: 600;
   font-family: "hangman";
@@ -221,8 +221,8 @@ body {
 
 .reset {
   padding: 3px 25px;
-  color: var(--white-color);
-  background-color: var(--black-color);
+  color: var(--black-color);
+  background-color: var(--white-color);
   font-family: "hangman";
   letter-spacing: 3px;
   font-size: 32px;

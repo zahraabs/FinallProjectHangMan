@@ -6,6 +6,7 @@ const sound = document.querySelector(".animationFrame__sound");
 const modal = document.querySelector(".modal");
 const openModalBtn = document.querySelector(".questionIcon");
 const closeModalBtn = document.querySelector(".btn-close");
+const quickPlayBtn = document.querySelector(".homeItems__buttons--lowOpacity");
 const easyLevelButton = document.getElementById("easy-level");
 const mediumLevelButton = document.getElementById("medium-level");
 const hardLevelButton = document.getElementById("hard-level");
@@ -28,6 +29,7 @@ document.querySelector(".btn-single-player").addEventListener("click", switchToS
 openModalBtn.addEventListener("click", openModal);
 closeModalBtn.addEventListener("click", closeModal);
 modal.addEventListener("click", closeModal);
+quickPlayBtn.addEventListener("click", ()=> (window.location.href = "./quickPlay.html"));
 easyLevelButton.addEventListener("click", () => selectLevel("easy"));
 mediumLevelButton.addEventListener("click", () => selectLevel("medium"));
 hardLevelButton.addEventListener("click", () => selectLevel("hard"));
